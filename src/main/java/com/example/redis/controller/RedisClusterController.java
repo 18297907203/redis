@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Map;
+
 /**
  * @创建人 Jay
  * @创建时间 2019/12/26
@@ -38,14 +40,21 @@ public class RedisClusterController {
      */
     @ResponseBody
     @RequestMapping("/set")
-    public String setInfo(String key,String value){
+    public String setInfo(String key,String value,int expSecond){
         try {
-            String set =  redisClusterService.setInfo(key,value);
+            String set =  redisClusterService.setInfo(key,value,expSecond);
             return "已存入缓存。。。"+set;
         } catch (Exception e) {
             e.printStackTrace();
             return "缓存存入失败。。。";
         }
+    }
+
+    //    redis集群测试
+    @ResponseBody
+    @RequestMapping("/test")
+    public Map<String,Object> redisClusterTest(){
+        return redisClusterService.redisClusterTest();
     }
 
 }

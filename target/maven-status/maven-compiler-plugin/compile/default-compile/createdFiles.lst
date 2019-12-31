@@ -1,1 +1,6 @@
+com\example\redis\serviceImpl\RedisClusterServiceImpl.class
+com\example\redis\controller\RedisClusterController.class
 com\example\redis\RedisApplication.class
+com\example\redis\mapper\RedisClusterMapper.class
+com\example\redis\service\RedisClusterService.class
+com\example\redis\unit\RedisConfig.class

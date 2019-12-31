@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.redis.mapper.RedisClusterMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.redis.pojo.Test">
+        <result property="id" column="id"></result>
+        <result property="num" column="num"></result>
+    </resultMap>
+
+<!--获取数据，用于测试redis集群-->
+    <select id="redisClusterTest" resultMap="BaseResultMap">
+        select id,num from test where id = '1';
+    </select>
+
+    <!--修改数据，用于redis测试-->
+    <update id="redisClusterTest2" parameterType="com.example.redis.pojo.Test">
+        update test set num = #{num} where id = #{id};
+    </update>
+
+</mapper>
